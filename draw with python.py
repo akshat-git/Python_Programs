@@ -7,10 +7,18 @@ def forward():
     pen.forward(10)
 def back():
     pen.backward(10)
+def fdx(x):
+    pen.forward(x)
+def bkx(x):
+    pen.backward(x)
 def right():
     pen.right(5)
+def right90():
+    pen.right(90)
 def left():
     pen.left(5)
+def left90():
+    pen.left(90)
 def penup():
     pen.penup()
 def pendown():
@@ -25,9 +33,46 @@ def circ():
         left()
         left()
 def pattern():
+    pendown()
     for i in range(36):
-        circ()
+        pen.fillcolor("black")
+        for i in range(3):
+            fdx(100)
+            right90()
+            fdx(100)
+            left90()
+        for i in range(10):
+            left()
+        fdx(100)
+        bkx(100)
+        for i in range(10):
+            right()
+        for i in range(3):
+            right90()
+            bkx(100)
+            left90()
+            bkx(100)
         right()
+        pen.fillcolor("white")
+        for i in range(3):
+            fdx(100)
+            right90()
+            fdx(100)
+            left90()
+        for i in range(10):
+            left()
+        fdx(100)
+        bkx(100)
+        for i in range(10):
+            right()
+        for i in range(3):
+            right90()
+            bkx(100)
+            left90()
+            bkx(100)
+        right()    
+        
+        
 wn.listen()
 wn.onkey(pattern, "a")
 wn.onkey(forward, "Up")  

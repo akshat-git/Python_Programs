@@ -1,32 +1,37 @@
 from math import *
-real = True
-def sqroot(b):
-    real = True
-    if b < 0:
-        real = False
-        b = b*(-1)
-    if sqrt(b) % 1 == 0:
-        if real == True:
-            return sqrt(b)
-        else:
-            return str(sqrt(b))+" i"
-    else:
-        if real == True:
-            return "-/"+str(b)
-        else:
-            return "-/"+str(b)+" i"
+
+def complete_the_square(a_begin, b_begin, c_begin):
+
+    for i in range(1, abs(a_begin)+1):
+        if a_begin%i == 0 and b_begin%i == 0 and c_begin%i == 0:
+            a = a_begin/i
+            b = b_begin/i
+            c = c_begin/i
+    
+    a2 = a
+    ab = b
+    real_c = ((ab/2)/sqrt(a2))**2
+
+    x = int(a2**.5)
+    y = real_c **.5
+
+    c_other = -1*c
+    c_other += real_c
+    sqrt_whole = False
+    if sqrt(c_other) % 1 == 0:
+        sqrt_whole = True    
+    if sqrt_whole:
+        case1 = "x = "+str((sqrt(c_other)-y)/x)
+        case2 = "x = "+str((-1*(sqrt(c_other))-y)/x)
+    if not sqrt_whole:
+        case1 = str(x)+"x + "+str(y) +" = -/"+str(c_other)
+        case2 = str(x)+"x + "+str(y) +" = - -/"+str(c_other)
+    print(case1)
+    print(case2)
+
 while True:
-    co = float(input("Coefficient: "))
-    y = float(input("C: "))
-    left = (co/2)
-    linear = str(left*(-1)) +" +- "+ sqroot((left**2) - y)
-    print("x =",str(linear))
-    
-    
-
-
-
-            
-        
-        
+    a_in = int(input("A: "))
+    b_in = int(input("B: "))
+    c_in = int(input("C: "))
+    complete_the_square(a_in, b_in, c_in)
 

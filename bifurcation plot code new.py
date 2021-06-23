@@ -1,7 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import warnings
-import math
 P=np.linspace(2.5,4,400000)
 m=0.7
 
